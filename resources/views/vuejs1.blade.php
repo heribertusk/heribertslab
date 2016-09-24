@@ -19,7 +19,7 @@
             </tr>
           </thead>
           <tbody v-sortable.tr="rows">
-            <button class="btn btn-primary btn-xs" @click="addRow($index)">add row</button>
+            <button class="btn btn-primary btn-xs" @click="addRow(rows.length-1)">add row</button>
             <tr v-for="row in rows" track-by="$index">
               <td>
                 @{{ $index +1 }}
