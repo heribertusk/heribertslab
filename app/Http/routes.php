@@ -22,3 +22,19 @@ Route::get('/vuejs1', function () {
 Route::get('/dependency', function () {
     return view('dependency');
 });
+
+Route::get('/api/categories', function () {
+    $data = App\Category::get(['id','name']);
+    return Response::json(['categories'=>$data]);
+});
+
+Route::get('/api/subcategories', function () {
+    $data = App\SubCategory::get(['id','name', 'category_id']);
+    return Response::json(['subcategories'=>$data]);
+});
+
+Route::get('/api/categories/{id}/subcategories', function ($id) {
+    $data = App\SubCategory::where('category_id', $id)->get(['id','name', 'category_id']);
+    //$data = App\SubCategory::get(['id','name', 'category_id']);
+    return Response::json(['subcategories'=>$data]);
+});
