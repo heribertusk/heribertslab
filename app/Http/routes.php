@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/vuejs1', function () {
     return view('vuejs1');
 });
+
+Route::get('/dependency', function () {
+    return view('dependency');
+});
