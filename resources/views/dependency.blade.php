@@ -52,6 +52,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.0.0/vue-resource.js" type="text/javascript"></script>
 
   <script>
+  var token = "{{ Session::getToken() }}";
   var vm = new Vue({
     el: '#app',
     data: {
@@ -94,9 +95,10 @@
           context: this,
           type: "POST",
           data: {
-            rows: this.rows,
+            _token: token,
+            rows: JSON.stringify(this.rows),
           },
-          url: "/api/data"
+          url: "/api/testpost"
         });
       }
     }

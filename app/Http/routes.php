@@ -38,3 +38,7 @@ Route::get('/api/categories/{id}/subcategories', function ($id) {
     //$data = App\SubCategory::get(['id','name', 'category_id']);
     return Response::json(['subcategories'=>$data]);
 });
+
+Route::post('/api/testpost', function (Illuminate\Http\Request $request) {
+    $data = json_decode($request->get('rows'));
+});
