@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/vuejs1', function () {
-    return view('vuejs1');
+Route::get('/cart', function () {
+    return view('cart');
 });
 
 Route::get('/dependency', function () {

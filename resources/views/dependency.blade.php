@@ -1,9 +1,10 @@
 <html>
 <head>
-  <title>Test Vuejs</title>
+  <title>Dependency Combobox Vuejs</title>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
+  <a href="/"><< Back to Home</a>
   <div class="container">
     <div class="panel-body" id="app">
       <table class="table table-hover">

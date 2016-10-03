@@ -4,6 +4,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
+  <a href="/"><< Back to Home</a>
   <div class="container">
     <h1>Dynamic Table with vuejs</h1>
     <a href="http://am2studio.hr/blog/creating-dynamic-table-with-vue-js/">Ref : http://am2studio.hr/blog/creating-dynamic-table-with-vue-js/</a>
