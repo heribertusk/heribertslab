@@ -7,7 +7,7 @@ Repo project laravel untuk mensupport demo tutorial di blog [heribertslab.com](h
 * [Laravel 5.1 LTS](https://laravel.com/docs/5.1).
 * [jQuery 2.2.x](https://cdnjs.com/libraries/jquery/2.2.4)
 * [Bootstrap 3.3.x](http://getbootstrap.com/)
-* [Vuejs 1x](https://vuejs.org/)
+* [Vuejs 1.x](https://vuejs.org/)
 
 ## Fitur
 
