@@ -15,13 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/cart', function () {
-    return view('cart');
+Route::get('vuejs/cart', function () {
+    return view('vuejs.cart');
 });
 
-Route::get('/dependency', function () {
-    return view('dependency');
+Route::get('vuejs/dependency', function () {
+    return view('vuejs.dependency');
 });
+
+Route::get('/instagram', 'SNSController@index');
 
 Route::get('/api/categories', function () {
     $data = App\Category::get(['id','name']);
