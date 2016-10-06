@@ -2,6 +2,7 @@
     <head>
         <title>Heribertslab.dev | @yield('title')</title>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        @yield('styles')
     </head>
     <body>
         @include('layouts.topnav')
