@@ -28,7 +28,7 @@ class SNSController extends Controller
         $getfield = '?screen_name=gistaputri&count=20';
         $requestMethod = 'GET';
 
-        $twitter = new TwitterAPIExchange($settings);
+        $twitter = new \TwitterAPIExchange($settings);
 
         $tweets = json_decode($twitter->setGetfield($getfield)
              ->buildOauth($url, $requestMethod)
@@ -39,7 +39,7 @@ class SNSController extends Controller
         else
           $data = collect([]);//\Bolandish\Instagram::getMediaByHashtag("chalkboard", 10);
         return view('sosmed_aggregator', compact('data','tweets'));
-        
+
         //$clientId = '8de9d9b46e294b0ea8c43efa05c90f31';
         //$clientSecret = 'f5bac935921a452295594f05ab9025ea';
         //$accessToken = '3556328137.8de9d9b.848ed39457b546d480f28a0b22699a2a';

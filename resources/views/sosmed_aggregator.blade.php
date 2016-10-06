@@ -21,13 +21,13 @@
   <div class="row">
     <div class="container">
       @foreach($tweets as $items)
-        {{ "Time and Date of Tweet: ".$items['created_at']."<br />"; }}
-        {{ "Tweet: ". $items['text']."<br />";}}
-        {{ "Tweeted by: ". $items['user']['name']."<br />";}}
-        {{ "Screen name: ". $items['user']['screen_name']."<br />";}}
-        {{ "Followers: ". $items['user']['followers_count']."<br />";}}
-        {{ "Friends: ". $items['user']['friends_count']."<br />";}}
-        {{ "Listed: ". $items['user']['listed_count']."<br />";}}
+        {{ "Time and Date of Tweet: ".$items['created_at']."<br />" }}
+        {{ "Tweet: ". $items['text']."<br />"}}
+        {{ "Tweeted by: ". $items['user']['name']."<br />"}}
+        {{ "Screen name: ". $items['user']['screen_name']."<br />"}}
+        {{ "Followers: ". $items['user']['followers_count']."<br />"}}
+        {{ "Friends: ". $items['user']['friends_count']."<br />"}}
+        {{ "Listed: ". $items['user']['listed_count']."<br />"}}
       @endforeach
     </div>
   </div>
