@@ -14,9 +14,32 @@ class SNSController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //return view('sosmed_aggregator');
+
+        $settings = array(
+          'oauth_access_token' => "754919673603301376-KCWgF1JvK0Ps5yiHMNGYAOOjAlEpzpb",
+          'oauth_access_token_secret' => "iGoRyibUNloUlyFV01vDFYDAIHObvIjGIDQr7uUqUYZjI",
+          'consumer_key' => "jjdHBWtrLuARgXJeBRnKzrEIu",
+          'consumer_secret' => "dfKiFTYb2F2Pn2zjQaQP4DOaH7v3VbWY27U0Kkn2ooDSZYKu3q"
+        );
+
+        $url = 'https://api.twitter.com/1.1/followers/ids.json';
+        $getfield = '?screen_name=her14nto';
+        $requestMethod = 'GET';
+
+        $twitter = new \TwitterAPIExchange($settings);
+        echo $twitter->setGetfield($getfield)
+        ->buildOauth($url, $requestMethod)
+        ->performRequest();
+
+        dd($twitter);
+
+        if($request->has('hashtag'))
+          $data = \Bolandish\Instagram::getMediaByHashtag($request->get('hashtag'), 10);
+        else
+          $data = collect([]);//\Bolandish\Instagram::getMediaByHashtag("chalkboard", 10);
+        return view('sosmed_aggregator', compact('data'));
         //$clientId = '8de9d9b46e294b0ea8c43efa05c90f31';
         //$clientSecret = 'f5bac935921a452295594f05ab9025ea';
         //$accessToken = '3556328137.8de9d9b.848ed39457b546d480f28a0b22699a2a';
