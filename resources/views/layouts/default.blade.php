@@ -16,6 +16,7 @@
         <!-- Footer js libs and scripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+        @include('layouts.vuejs')
         @yield('scripts')
     </body>
 </html>
