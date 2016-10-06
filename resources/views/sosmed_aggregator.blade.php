@@ -25,12 +25,11 @@
       @foreach($tweets as $items)
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">{!! "Tweeted by: ". $items['user']['name']."<br />"!!}</h3>
+            {!! "Tweet by: @". $items->user->screen_name ."<br />" !!}
           </div>
           <div class="panel-body">
-            {!! "Time and Date of Tweet: ".$items['created_at']."<br />" !!}
-            {!! "Tweet: ". $items['text']."<br />"!!}
-            {!! "Screen name: ". $items['user']['screen_name']."<br />"!!}
+            {!! $items->created_at."<br />" !!}
+            {!! $items->text."<br />" !!}
           </div>
         </div>
       @endforeach

@@ -24,20 +24,28 @@ class SNSController extends Controller
           'consumer_secret' => "dfKiFTYb2F2Pn2zjQaQP4DOaH7v3VbWY27U0Kkn2ooDSZYKu3q"
         );
 
-        $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-        $getfield = '?screen_name=gistaputri&count=20';
+        $url = 'https://api.twitter.com/1.1/search/tweets.json';
+
+
         $requestMethod = 'GET';
 
         $twitter = new \TwitterAPIExchange($settings);
 
-        $tweets = json_decode($twitter->setGetfield($getfield)
-             ->buildOauth($url, $requestMethod)
-             ->performRequest(),$assoc = TRUE);
-
         if($request->has('hashtag'))
+        {
           $data = \Bolandish\Instagram::getMediaByHashtag($request->get('hashtag'), 10);
+          $getfield = '?q=%23'.$request->get('hashtag').'&result_type=recent&count=10';
+        }
         else
+        {
           $data = collect([]);//\Bolandish\Instagram::getMediaByHashtag("chalkboard", 10);
+          $getfield = '?q=%23twitter&result_type=recent&count=10';
+        }
+
+        $tweets = json_decode($twitter->setGetfield($getfield)
+              ->buildOauth($url, $requestMethod)
+              ->performRequest())->statuses;
+
         return view('sosmed_aggregator', compact('data','tweets'));
 
         //$clientId = '8de9d9b46e294b0ea8c43efa05c90f31';
