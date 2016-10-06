@@ -23,24 +23,26 @@ Route::get('vuejs/dependency', function () {
     return view('vuejs.dependency');
 });
 
-Route::get('/instagram', 'SNSController@index');
+Route::get('instagram', 'SNSController@index');
+Route::get('vuejs/paginator', 'EmployeeController@index');
+Route::get('api/employees', 'EmployeeController@apiGetEmployee');
 
-Route::get('/api/categories', function () {
+Route::get('api/categories', function () {
     $data = App\Category::get(['id','name']);
     return Response::json(['categories'=>$data]);
 });
 
-Route::get('/api/subcategories', function () {
+Route::get('api/subcategories', function () {
     $data = App\SubCategory::get(['id','name', 'category_id']);
     return Response::json(['subcategories'=>$data]);
 });
 
-Route::get('/api/categories/{id}/subcategories', function ($id) {
+Route::get('api/categories/{id}/subcategories', function ($id) {
     $data = App\SubCategory::where('category_id', $id)->get(['id','name', 'category_id']);
     //$data = App\SubCategory::get(['id','name', 'category_id']);
     return Response::json(['subcategories'=>$data]);
 });
 
-Route::post('/api/testpost', function (Illuminate\Http\Request $request) {
+Route::post('api/testpost', function (Illuminate\Http\Request $request) {
     $data = json_decode($request->get('rows'));
 });
