@@ -11,23 +11,28 @@
   </div>
 
   <div class="row">
-    <div class="container">
-      @foreach($data as $row)
-        <img src="{{ $row->thumbnail_src }}" alt="{{ $row->thumbnail_src }}" height="128" width="128">
-      @endforeach
-    </div>
+    @foreach($data as $row)
+      <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="{{ $row->thumbnail_src }}" alt="{{ $row->thumbnail_src }}">
+        </a>
+      </div>
+    @endforeach
   </div>
 
   <div class="row">
     <div class="container">
       @foreach($tweets as $items)
-        {!! "Time and Date of Tweet: ".$items['created_at']."<br />" !!}
-        {!! "Tweet: ". $items['text']."<br />"!!}
-        {!! "Tweeted by: ". $items['user']['name']."<br />"!!}
-        {!! "Screen name: ". $items['user']['screen_name']."<br />"!!}
-        {!! "Followers: ". $items['user']['followers_count']."<br />"!!}
-        {!! "Friends: ". $items['user']['friends_count']."<br />"!!}
-        {!! "Listed: ". $items['user']['listed_count']."<br />"!!}
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">{!! "Tweeted by: ". $items['user']['name']."<br />"!!}</h3>
+          </div>
+          <div class="panel-body">
+            {!! "Time and Date of Tweet: ".$items['created_at']."<br />" !!}
+            {!! "Tweet: ". $items['text']."<br />"!!}
+            {!! "Screen name: ". $items['user']['screen_name']."<br />"!!}
+          </div>
+        </div>
       @endforeach
     </div>
   </div>
