@@ -20,6 +20,7 @@
           <ul class="dropdown-menu">
             <li><a href="{{ URL::to('vuejs/cart')}}">Cart</a></li>
             <li><a href="{{ URL::to('vuejs/dependency')}}">Dependency Selectbox</a></li>
+            <li><a href="{{ URL::to('vuejs/paginator')}}">Paginator</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
           </ul>
