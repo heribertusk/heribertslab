@@ -23,7 +23,7 @@ Route::get('vuejs/dependency', function () {
     return view('vuejs.dependency');
 });
 
-Route::get('instagram', 'SNSController@index');
+Route::get('hashtag_feeder', 'SNSController@index');
 Route::get('vuejs/paginator', 'EmployeeController@index');
 Route::get('api/employees', 'EmployeeController@apiGetEmployee');
 
