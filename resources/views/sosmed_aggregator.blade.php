@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
   <div class="row">
-  {!! Form::open(['method'=>'GET','url'=> URL::to('instagram'),'class'=>'navbar-form navbar-left','role'=>'search'])  !!}
+  {!! Form::open(['method'=>'GET','url'=> URL::to('hashtag_feeder'),'class'=>'navbar-form navbar-left','role'=>'search'])  !!}
   <div class="input-group custom-search-form">
     <input type="text" class="form-control" name="hashtag" placeholder="Hashtag tanpa #...">
     {!! Form::submit('Cari Konten') !!}
