@@ -23,8 +23,13 @@ Route::get('vuejs/dependency', function () {
     return view('vuejs.dependency');
 });
 
+Route::get('vuejs/pembukuan', function () {
+    return view('vuejs.pembukuan');
+});
+
 Route::get('hashtag_feeder', 'SNSController@index');
 Route::get('vuejs/paginator', 'EmployeeController@index');
+
 Route::get('api/employees', 'EmployeeController@apiGetEmployee');
 
 Route::get('api/categories', function () {
@@ -41,6 +46,21 @@ Route::get('api/categories/{id}/subcategories', function ($id) {
     $data = App\SubCategory::where('category_id', $id)->get(['id','name', 'category_id']);
     //$data = App\SubCategory::get(['id','name', 'category_id']);
     return Response::json(['subcategories'=>$data]);
+});
+
+Route::get('api/activities', function () {
+    $data = App\Activity::get(['id','project_id', 'name']);
+    return Response::json(['activities'=>$data]);
+});
+
+Route::get('api/account_codes', function () {
+    $data = App\AccountCode::get(['id','kode', 'name']);
+    return Response::json(['account_codes'=>$data]);
+});
+
+Route::get('api/projects', function () {
+    $data = App\Project::get(['id', 'name']);
+    return Response::json(['projects'=>$data]);
 });
 
 Route::post('api/testpost', function (Illuminate\Http\Request $request) {

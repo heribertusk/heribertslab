@@ -1,40 +1,6 @@
 @extends('layouts.default')
 @section('styles')
-<style>
-.vuetable th.sortable:hover {
-    color: #2185d0;
-    cursor: pointer;
-}
-.vuetable-actions {
-    width: 11%;
-    padding: 12px 0px;
-    text-align: center;
-}
-.vuetable-actions > button {
-  padding: 3px 6px;
-  margin-right: 4px;
-}
-.vuetable-pagination {
-}
-.vuetable-pagination-info {
-    float: left;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-.vuetable-pagination-component {
-  float: right;
-}
-.vuetable-pagination-component .pagination {
-  margin: 0px;
-}
-.vuetable-pagination-component .pagination .btn {
-    cursor: pointer;
-    margin: 2px;
-}
-.highlight {
-    background-color: yellow;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/app.css')}}">
 @stop
 @section('content')
 <h4>Paginator using vue-table : <a href="https://github.com/ratiw/vue-table">https://github.com/ratiw/vue-table</a><h4>
