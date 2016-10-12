@@ -13,6 +13,7 @@
             <th>Project</th>
             <th>Activity</th>
             <th>Kode Akun</th>
+            <th>Tanggal Transaksi</th>
             <th style="width: 80px;">Qty</th>
             <th style="width: 130px;" class="text-right">Price</th>
             <th style="width: 90px;">Tax</th>
@@ -47,6 +48,11 @@
                   @{{ item.kode }}
                 </option>
               </select>
+            </td>
+            <td>
+              <vue-datetime-picker v-ref:picker1 name="picker1"
+                                   :model.sync="row.date_trans">
+              </vue-datetime-picker>
             </td>
             <td>
               <input class="form-control" v-model="row.qty" number/>
@@ -109,9 +115,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.4.2/Sortable.min.js" type="text/javascript"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/accounting.js/0.4.1/accounting.min.js" type="text/javascript"></script>
   <script>
-  Vue.component('vuejs-datepicker', {
-  // options
-  });
   Vue.filter('currencyDisplay', {
     // model -> view
     read: function (val) {
@@ -150,6 +153,8 @@
       this.onUpdate(value);
     }
   });
+
+  Vue.component('vue-datetime-picker', myDatePicker);
 
   var vm = new Vue({
     el: '#app',

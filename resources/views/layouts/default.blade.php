@@ -2,6 +2,8 @@
     <head>
         <title>Heribertslab.dev | @yield('title')</title>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/fontawesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.datetimepicker/4.17.43/css/bootstrap-datetimepicker.min.css">
         @yield('styles')
     </head>
     <body>

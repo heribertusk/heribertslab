@@ -1,0 +1,21 @@
+{
+  "name": "heribertslab",
+  "description": "libs",
+  "main": "",
+  "authors": [
+    "heribertusk"
+  ],
+  "license": "MIT",
+  "homepage": "http://github.com/heribertusk",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+
+  }
+}
