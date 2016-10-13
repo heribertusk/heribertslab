@@ -41,7 +41,7 @@
               </select>
             </td>
             <td>
-              <select v-select="row.kode_akun_id" :options="account_codes" style="width: 400px; height: 1em;">                
+              <select v-select="row.kode_akun_id" :options="account_codes" style="width: 400px; height: 1em;">
               </select>
             </td>
             <td>
@@ -198,7 +198,7 @@
     unbind: function() {
       $(this.el).off().select2('destroy')
     }
-  })
+  });
 
   var vm = new Vue({
     el: '#app',
