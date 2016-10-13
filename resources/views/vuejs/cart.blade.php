@@ -92,7 +92,7 @@
     // model -> view
     read: function (val) {
       if (val > 0) {
-        return accounting.formatMoney(val, "$", 2, ".", ",");
+        return accounting.formatMoney(val, "Rp.", 0, ".", ",");
       }
     },
     // view -> model
@@ -132,13 +132,13 @@
     data: {
       rows: [
         //initial data
-        {qty: 5, description: "Something", price: 55.20, tax: 10},
-        {qty: 2, description: "Something else", price: 1255.20, tax: 20},
+        {qty: 3, description: "Something", price: 1500000, tax: 10},
+        {qty: 2, description: "Something else", price: 35000, tax: 0},
       ],
       total: 0,
       grandtotal: 0,
       taxtotal: 0,
-      delivery: 40
+      delivery: 28000
     },
     computed: {
       total: function () {
