@@ -41,13 +41,8 @@
               </select>
             </td>
             <td>
-              <!--
-              <select v-model="row.kode_akun_id" id="account_code">
-                <option v-for="item in account_codes" v-bind:value="item.id">
-                  @{{ item.kode }}
-                </option>
+              <select v-select="row.kode_akun_id" :options="account_codes" style="width: 400px; height: 1em;">                
               </select>
-              -->              
             </td>
             <td>
               <datepicker :value.sync="row.startDate"></datepicker>
@@ -180,7 +175,30 @@
   });
 
   Vue.component('datepicker', datepickerComponent);
-  Vue.component('vue-select', vueselect);
+
+  Vue.directive('select', {
+    twoWay: true,
+    priority: 1000,
+
+    params: ['options'],
+
+    bind: function() {
+      var self = this
+      $(this.el)
+      .select2({
+        data: this.params.options
+      })
+      .on('change', function() {
+        self.set(this.value)
+      })
+    },
+    update: function(value) {
+      $(this.el).val(value).trigger('change')
+    },
+    unbind: function() {
+      $(this.el).off().select2('destroy')
+    }
+  })
 
   var vm = new Vue({
     el: '#app',
@@ -193,6 +211,10 @@
       projects: [],
       activities: [],
       account_codes: [],
+      options: [
+        { id: 1, text: 'Hello' },
+        { id: 2, text: 'World' }
+      ]
     },
     ready: function() {
       this.initCategories();

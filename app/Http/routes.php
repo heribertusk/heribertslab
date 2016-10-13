@@ -58,7 +58,7 @@ Route::get('api/activities', function () {
 });
 
 Route::get('api/account_codes', function () {
-    $data = App\AccountCode::get(['id','kode', 'name']);
+    $data = App\AccountCode::get(['id','kode as text']);    
     return Response::json(['account_codes'=>$data]);
 });
 
