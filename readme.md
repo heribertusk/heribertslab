@@ -11,8 +11,11 @@ Repo project laravel untuk mensupport demo tutorial di blog [heribertslab.com](h
 
 ## Fitur
 
-* Cart (laravel+vuejs)
+* Cart (laravel+vuejs) - Accounting Currency : Rupiah (IDR), ref: http://am2studio.hr/blog/creating-dynamic-table-with-vue-js/
 * Dependency selectbox (laravel+vuejs)
+* Transaksi Pembukuan - select2 untuk pemilihan kode akun, datepicker untuk pick tanggal Transaksi (laravel + vuejs)
+* Serverside paginator with vuetable https://github.com/ratiw/vue-table
+* Hashtag feeder (twitter dan instagram)
 
 ### License
 
