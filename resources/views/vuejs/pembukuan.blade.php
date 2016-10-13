@@ -1,24 +1,22 @@
 @extends('layouts.default')
 @section('styles')
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/app.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/app.css')}}">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker3.standalone.min.css">
 @stop
 @section('content')
-<div class="container">
-  <h1>Contoh Pembukuan</h1>
+  <div class="container">
+    <h1>Contoh Pembukuan</h1>
     <div class="panel-body" id="app">
       <table class="table table-hover">
         <thead>
           <tr>
             <th style="width: 20px;">No.</th>
-            <th>Project</th>
-            <th>Activity</th>
-            <th>Kode Akun</th>
-            <th>Tanggal Transaksi</th>
-            <th style="width: 80px;">Qty</th>
-            <th style="width: 130px;" class="text-right">Price</th>
-            <th style="width: 90px;">Tax</th>
+            <th style="width: 60px;">Project</th>
+            <th style="width: 80px;">Activity</th>
+            <th style="width: 50px;">Kode Akun</th>
+            <th style="width: 100px;">Tanggal 1</th>
+            <th style="width: 100px;">Tanggal 2</th>
             <th style="width: 90px;">Tipe</th>
-            <th style="width: 130px;">Total</th>
             <th style="width: 130px;"></th>
           </tr>
         </thead>
@@ -43,17 +41,21 @@
               </select>
             </td>
             <td>
+              <!--
               <select v-model="row.kode_akun_id" id="account_code">
                 <option v-for="item in account_codes" v-bind:value="item.id">
                   @{{ item.kode }}
                 </option>
               </select>
+              -->              
             </td>
             <td>
-              <vue-datetime-picker v-ref:picker1 name="picker1"
-                                   :model.sync="row.date_trans">
-              </vue-datetime-picker>
+              <datepicker :value.sync="row.startDate"></datepicker>
             </td>
+            <td>
+              <datepicker :value.sync="row.endDate"></datepicker>
+            </td>
+            <!--
             <td>
               <input class="form-control" v-model="row.qty" number/>
             </td>
@@ -77,6 +79,7 @@
               <input class="form-control text-right" :value="row.qty * row.price | currencyDisplay" v-model="row.total | currencyDisplay" number readonly />
               <input type="hidden" :value="row.qty * row.price * row.tax / 100" v-model="row.tax_amount | currencyDisplay" number/>
             </td>
+            -->
             <td>
               <button class="btn btn-primary btn-xs" @click="addRow($index)">add row</button>
               <button class="btn btn-danger btn-xs" @click="removeRow($index)">remove row</button>
@@ -109,11 +112,12 @@
       <button @click="getData()">SUBMIT DATA</button>
       <pre>@{{ $data | json }}</pre>
     </div>
-</div>
+  </div>
 @stop
 @section('scripts')
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.4.2/Sortable.min.js" type="text/javascript"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/accounting.js/0.4.1/accounting.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script>
   <script>
   Vue.filter('currencyDisplay', {
     // model -> view
@@ -154,7 +158,29 @@
     }
   });
 
-  Vue.component('vue-datetime-picker', myDatePicker);
+  var datepickerComponent = Vue.extend({
+    //v-el:select
+    template: '<div class="input-group date" v-el:inputgroup>' +
+    '<input type="text" class="form-control" v-model="value" style="width:100px">'+
+    '<span class="input-group-addon">'+
+    '<i class="glyphicon glyphicon-calendar"></i></span>' +
+    '</div>',
+    props: {
+      value: null
+    },
+    data: function() {
+      return {};
+    },
+    ready: function() {
+      $(this.$els.inputgroup).datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true
+      });
+    }
+  });
+
+  Vue.component('datepicker', datepickerComponent);
+  Vue.component('vue-select', vueselect);
 
   var vm = new Vue({
     el: '#app',
@@ -163,7 +189,7 @@
       total: 0,
       grandtotal: 0,
       taxtotal: 0,
-      delivery: 40,
+      delivery: 0,
       projects: [],
       activities: [],
       account_codes: [],

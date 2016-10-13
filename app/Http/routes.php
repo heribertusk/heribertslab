@@ -27,6 +27,10 @@ Route::get('vuejs/pembukuan', function () {
     return view('vuejs.pembukuan');
 });
 
+Route::get('vuejs/datepicker', function () {
+    return view('vuejs.datepicker');
+});
+
 Route::get('hashtag_feeder', 'SNSController@index');
 Route::get('vuejs/paginator', 'EmployeeController@index');
 
