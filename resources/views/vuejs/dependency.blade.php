@@ -13,6 +13,7 @@
             <th style="width: 20px;">No.</th>
             <th style="width: 130px;">Category</th>
             <th style="width: 130px;">Subcategory</th>
+            <th style="width: 60px;">Checkbox</th>
           </tr>
         </thead>
         <tbody>
@@ -36,6 +37,10 @@
               </select>
             </td>
             <td>
+              <!--<input type="checkbox" v-model="row.checkbox">-->
+              <input type="radio" value="@{{$index}}" v-model="radioDefault">
+            </td>
+            <td>
               <button class="btn btn-primary btn-xs" @click="addRow($index)">add row</button>
               <button class="btn btn-danger btn-xs" @click="removeRow($index)">remove row</button>
             </td>
@@ -57,6 +62,7 @@
   var vm = new Vue({
     el: '#app',
     data: {
+      radioDefault: 0,
       rows: [],
       categories: [],
       subcategories: []
@@ -67,7 +73,7 @@
     methods: {
       addRow: function (index) {
         try {
-          this.rows.splice(index + 1, 0, {});
+          this.rows.splice(index + 1, 0, {"checkbox": false});
         } catch(e)
         {
           console.log(e);
