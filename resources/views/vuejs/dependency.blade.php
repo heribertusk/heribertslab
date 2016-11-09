@@ -23,7 +23,7 @@
               @{{ $index +1 }}
             </td>
             <td>
-              <select v-model="row.selectedCategory" id="category">
+              <select v-model="row.selectedCategory" id="category" @change="changeItem($index, $event)">
                 <option v-for="category in categories" v-bind:value="category.id">
                   @{{ category.name }}
                 </option>
@@ -107,6 +107,10 @@
           },
           url: "/api/testpost"
         });
+      },
+      changeItem(rowId, event) {
+        var message = "Category Index : " +rowId+" change to "+event.target.value;
+        Vue.delete(this.rows[rowId], 'selectedSubCategory');        
       }
     }
   });
